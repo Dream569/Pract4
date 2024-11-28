@@ -1,0 +1,38 @@
+﻿<Window x:Class="Pract4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pract4"
+        mc:Ignorable="d"
+        Title="Весело" MinHeight="900" MinWidth="900"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="CanResize"
+        MaxHeight="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}}"
+        MaxWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}">
+    <Grid>
+        <ComboBox x:Name="FractalComboBox" SelectionChanged="FractalComboBox_SelectionChanged" 
+                  VerticalAlignment="Top" Margin="10">
+            <ComboBoxItem Content="Фрактальное дерево" />
+            <ComboBoxItem Content="Кривая Коха" />
+            <ComboBoxItem Content="Ковер Серпинского" />
+            <ComboBoxItem Content="Треугольник Серпинского" />
+            <ComboBoxItem Content="Множество Кантора" />
+        </ComboBox>
+
+        <Slider x:Name="StepSlider" Minimum="1" Maximum="10" Value="1" 
+                VerticalAlignment="Top" Margin="10,40,10,0" 
+                ValueChanged="StepSlider_ValueChanged"/>
+
+        <ComboBox x:Name="ColorComboBox" VerticalAlignment="Top" Margin="10,80,10,0" SelectionChanged="ColorComboBox_SelectionChanged">
+            <ComboBoxItem Content="Красный" Tag="Red"/>
+            <ComboBoxItem Content="Зеленый" Tag="Green"/>
+            <ComboBoxItem Content="Синий" Tag="Blue"/>
+            <ComboBoxItem Content="Черный" Tag="Black"/>
+            <ComboBoxItem Content="Белый" Tag="White"/>
+        </ComboBox>
+
+        <Canvas x:Name="FractalCanvas" Background="White" 
+                VerticalAlignment="Stretch" Margin="10,120,10,10"/>
+    </Grid>
+</Window>
